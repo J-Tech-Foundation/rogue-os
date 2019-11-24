@@ -1,6 +1,6 @@
 #!/bin/bash
 
 
-if [  ];
-
+if [ ! $RPATH ];
+export RPATH=$PATH
 fi
