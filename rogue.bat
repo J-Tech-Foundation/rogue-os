@@ -1,32 +1,63 @@
+@echo on
+
+mkdir distilled
+
+
+
 @echo off
-
+title rogue
+IF %ROGUE_PATH% if %1=="upgrade" (
+    SET /A VER=%VERSION%%ROGUE_PATH%
+)
+IF %ROGUE_PATH% (
+    @echo on
+	goto restart_sys
+)
+ELSE(
 SET /A ROGUE_PATH=%PATH%
-SET /A BOOT=C:\bootmgr.bat
+
+@echo on
+goto restart_sys
+)
+
+:final_setup
 
 
-if %1=="/no-reboot" (
-    SET /A BOOT=""
-)
-if %1=="/developer-mode" (
-    @echo on
-)
-ELSE if %1=="/dm" (
-    @echo on
-)
-rem bootmgr.bat will be added by on of our first lovely developers to support us!
-if exists %ROGUE_PATH%\bootmgr.bat (
-    if not exists %BOOT% (
-        rem check to make sure that the line below actually restarts the PC and runs the right commands
-        shutdown /f /s /t 20 /c "rogue is restarting the PC to continue installation" && goto boot
-    )
-)
-rem boot label 
-:boot
-rem registry file
-SET /A registry=%ROGUE_PATH%\registry.bat
-rem sets a bunch of MUST BE DOWNLOADED to boot disk files to a variable
-call %registry% dist=%ROGUE_PATH\dist\*.__.dll
-rem  
-rem
-rem
+IF exist C:\%ROGUE_PATH\boot.bat (
 
+C:\%ROGUE_PATH%\boot.bat
+
+
+title install rogue
+)
+ELSE(
+shutdown /r /f /fw /e /t 10 /c "unable to boot, restarting pc to firmware user interface (FUI)" /d 2:2
+)
+:restart_sys
+
+shutdown /s /f /t 20 /c "restarting in 20 seconds to continue installation"
+
+
+IF exist C:\BOOT.EXE (
+.\C:\BOOT.EXE
+)
+ELSE (
+shutdown /r /f /fw /e /t 10 /c "unable to run rogue boot (C:\BOOT.EXE), restarting pc to firmware user interface (FUI)" /d 2:2
+)
+
+echo diskcomp >> "C:\BOOT.DLL"
+if defined PATH (
+cipher /E "C:\BOOT.DLL"
+goto final_setup
+cipher /D "C:\BOOT.DLL"
+)
+ELSE (
+shutdown /r /f /fw /e /t 10 /c "unable to set user path to sandboxed setup, restarting pc to firmware user interface (FUI)" /d 2:2
+)
+
+
+
+:update
+if defined %2 (
+	wget "https://j-tech"
+)

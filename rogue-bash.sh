@@ -1,6 +1,6 @@
 #!/bin/bash
 
 
-if [ ! $RPATH ];
-export RPATH=$PATH
+if [ ! rogue_path ];then
+    export rogue_path=$PATH
 fi
