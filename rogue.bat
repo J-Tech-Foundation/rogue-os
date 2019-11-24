@@ -25,3 +25,4 @@ if exists %ROGUE_PATH%\bootmgr.bat (
 :boot
 
 SET /A registry=%ROGUE_PATH%\registry
+rem all boot settings/graphics/displays... go below here for setup, signup/login is allowed to private databases shared with JT NEXUS Foundation Directky
