@@ -20,10 +20,13 @@ if exists %ROGUE_PATH%\bootmgr.bat (
         shutdown /f /s /t 20 /c "rogue is restarting the PC to continue installation" && goto boot
     )
 )
-
+rem boot label 
 :boot
-
+rem registry file
 SET /A registry=%ROGUE_PATH%\registry.bat
+rem sets a bunch of MUST BE DOWNLOADED to boot disk files to a variable
 call %registry% dist=%ROGUE_PATH\dist\*.__.dll
-
+rem  
+rem
+rem
 
