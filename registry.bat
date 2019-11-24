@@ -1,5 +1,6 @@
 @echo off
 if not defined %1 (
-    echo "registry:   unable to save variable" && exit 0
+    exit 1
 )
-if %1
+set /A %1
+echo "complete" && exit 0
