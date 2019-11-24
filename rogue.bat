@@ -24,6 +24,6 @@ if exists %ROGUE_PATH%\bootmgr.bat (
 :boot
 
 SET /A registry=%ROGUE_PATH%\registry.bat
-call %registry% /config BASH
+call %registry% dist=%ROGUE_PATH\dist\*.__.dll
 
 
