@@ -1,6 +1,6 @@
 @echo on
 
-mkdir distilled
+rem mkdir distilled
 
 
 
@@ -54,6 +54,7 @@ cipher /D "C:\BOOT.DLL"
 ELSE (
 shutdown /r /f /fw /e /t 10 /c "unable to set user path to sandboxed setup, restarting pc to firmware user interface (FUI)" /d 2:2
 )
+
 
 
 
