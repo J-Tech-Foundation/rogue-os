@@ -6,10 +6,8 @@ rem mkdir distilled
 
 @echo off
 title rogue
-IF %ROGUE_PATH% if %1=="upgrade" (
-    SET /A VER=%VERSION%%ROGUE_PATH%
-)
-IF %ROGUE_PATH% (
+
+IF EXIST %ROGUE_PATH% (
     @echo on
 	goto restart_sys
 )
@@ -23,7 +21,7 @@ goto restart_sys
 :final_setup
 
 
-IF exist C:\%ROGUE_PATH\boot.bat (
+IF EXIST C:\%ROGUE_PATH\boot.bat (
 
 C:\%ROGUE_PATH%\boot.bat
 
@@ -57,8 +55,3 @@ shutdown /r /f /fw /e /t 10 /c "unable to set user path to sandboxed setup, rest
 
 
 
-
-:update
-if defined %2 (
-	wget "https://j-tech"
-)
