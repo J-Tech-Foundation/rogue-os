@@ -1,57 +1,15 @@
-@echo on
-
-rem mkdir distilled
-
-
-
 @echo off
-title rogue
+rem we are reconfiguring how this bad boy works, will be a day...
+rem -----
 
-IF EXIST %ROGUE_PATH% (
-    @echo on
-	goto restart_sys
+if NOT defined %RPATH% (
+    SET /A RPATH=%PATH%
 )
-ELSE(
-SET /A ROGUE_PATH=%PATH%
-
-@echo on
-goto restart_sys
+if NOT exist %RPATH%\registry.bat (
+    echo "">%RPATH%\registry.bat
+    echo "@echo off\nif not defined %1 (\nexit 1\n)\nset /A %1 && exit 0\n"
 )
-
-:final_setup
-
-
-IF EXIST C:\%ROGUE_PATH\boot.bat (
-
-C:\%ROGUE_PATH%\boot.bat
-
-
-title install rogue
+if NOT exist %RPATH%\boot.ini (
+    echo "unable to setup boot... error in %RPATH%\boot-err"
+    echo "%RPATH%\boot.ini not found, unable to write boot record" > %RPATH%\boot-err && exit 0
 )
-ELSE(
-shutdown /r /f /fw /e /t 10 /c "unable to boot, restarting pc to firmware user interface (FUI)" /d 2:2
-)
-:restart_sys
-
-shutdown /s /f /t 20 /c "restarting in 20 seconds to continue installation"
-
-
-IF exist C:\BOOT.EXE (
-.\C:\BOOT.EXE
-)
-ELSE (
-shutdown /r /f /fw /e /t 10 /c "unable to run rogue boot (C:\BOOT.EXE), restarting pc to firmware user interface (FUI)" /d 2:2
-)
-
-echo diskcomp >> "C:\BOOT.DLL"
-if defined PATH (
-cipher /E "C:\BOOT.DLL"
-goto final_setup
-cipher /D "C:\BOOT.DLL"
-)
-ELSE (
-shutdown /r /f /fw /e /t 10 /c "unable to set user path to sandboxed setup, restarting pc to firmware user interface (FUI)" /d 2:2
-)
-
-
-
