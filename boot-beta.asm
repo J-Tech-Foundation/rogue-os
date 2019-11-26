@@ -12,3 +12,7 @@ section	.data
 ; end file:
 ; move eax,1
 ; int 0x80
+
+
+;string setup:
+;msg db 'MSG_HERE',0xa
