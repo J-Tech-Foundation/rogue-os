@@ -26,8 +26,8 @@ if NOT defined %executor% (
 )
 rem check if the terminal actually exists
 if NOT exist %executor% (
-    echo "unable to install rogue command prompt... error in %RPATH%\boot-err"
-    echo "%RPATH%\terminal.exe not found, unable to use rogue terminal for next download steps" > %RPATH%\boot-err && exit 0
+    echo "unable to install JT command prompt... error in %RPATH%\boot-err"
+    echo "%RPATH%\terminal.exe not found, unable to use JT terminal for next download steps" > %RPATH%\boot-err && exit 0
 )
 
 
