@@ -10,5 +10,14 @@ _start:
    mov	eax,1       
    int	0x80        
 section	.data
-msg db 'Hello, world!', 0xa   
-len equ $ - msg     
+
+; template:
+; mov edx,LENGTH
+; mov ecx,MSG
+; mov ebx,1
+; mov eax,4
+; int 0x80
+
+; end file:
+; move eax,1
+; int 0x80
