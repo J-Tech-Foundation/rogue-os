@@ -8,11 +8,9 @@ _start:
     mov eax,4
     int 0x80
     
-    mov edx,4
-    mov ecx,"yeet"
-    mov ebx,1
-    mov eax,4
-    int 0x80
+    ;begin os
+    
+    ;end os
     
     mov eax,1
     int 0x80
