@@ -7,5 +7,10 @@ Head Developer:   Sierra Rea
 developers:
 * none yet
 
+bug finders:
+* none yet
+
+
+
 Inspiration:   
 * Mr. and Ms. Horvath
