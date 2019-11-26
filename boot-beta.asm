@@ -9,7 +9,11 @@ _start:
     int 0x80
     
     ;begin os
-    
+    mov edx,equ $ - loader 
+    mov ecx,loader
+    mov ebx,1
+    mov eax,4
+    int 0x80
     ;end os
     
     mov eax,1
@@ -17,6 +21,13 @@ _start:
 section	.data
     vim db 'loading',0xa
     vimlen equ $ - vim
+    loader db 'JT OS version 0.0.0.09',0xa
+ 
+ 
+    
+;
+;
+;
 ; mov edx,LENGTH
 ; mov ecx,MSG
 ; mov ebx,1
