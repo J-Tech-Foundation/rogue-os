@@ -15,4 +15,5 @@ section	.data
 
 
 ;string setup:
-;msg db 'MSG_HERE',0xa
+;VAR_NAME db 'MSG_HERE',0xa
+;LENGTH_NAME equ $ - VAR_NAME 
