@@ -46,20 +46,30 @@ section	.data
     loader db 'JT OS version 0.0.0.09',0xa
     worksA db 'testing file system',0xa
     SHUTDOWN_MSG db "shutting down system",0xa
+    INVENTORY DW 0
+              DW 1
+              DW 2
+              DW 3
+              DW 4
+              DW 5
+              DW 6
+              DW 7
+              DW 8
+              DW 9
+              ;inventory equals 9 bytes of 0x0
+              
+        
     
-;
-;
-;
-; mov edx,LENGTH
-; mov ecx,MSG
-; mov ebx,1
-; mov eax,4
-; int 0x80
-
-; end file:
-; move eax,1
-; int 0x80
-
-;string setup:
-;VAR_NAME db 'MSG_HERE',0xa
-;LENGTH_NAME equ $ - VAR_NAME 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
