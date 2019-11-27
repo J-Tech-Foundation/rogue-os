@@ -31,7 +31,10 @@ _start:
     mov ebx,1
     mov eax,4
     int 0x80
-    
+    ;start os turn on
+    ;end os turn on
+    ;start os display
+    ;end os display
     print SHUTDOWN_MSG
     ;end os
     
