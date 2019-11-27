@@ -4,12 +4,6 @@
     mov ebx,1
     mov edx,equ $ - %1
     mov ecx,%1
-    int 0x80
-    
-    mov eax,4
-    mov ebx,1
-    mov edx,equ $ - 0xa
-    mov ecx,0xa
     int 80h
 %endmacro
 
@@ -37,7 +31,8 @@ _start:
     mov ebx,1
     mov eax,4
     int 0x80
-    mov eax,
+    
+    print SHUTDOWN_MSG
     ;end os
     
     mov eax,1
@@ -47,6 +42,7 @@ section	.data
     vimlen equ $ - vim
     loader db 'JT OS version 0.0.0.09',0xa
     worksA db 'testing file system',0xa
+    SHUTDOWN_MSG db "shutting down system",0xa
     
 ;
 ;
