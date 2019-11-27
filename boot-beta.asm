@@ -1,3 +1,14 @@
+%macro write 1
+    ;%1 = the message to print
+    mov eax,4
+    mov ebx,1
+    mov edx,equ $ - %1
+    mov ecx,%1
+    int 80h
+%endmacro
+
+
+
 section	.text
    global _start     
 	
@@ -20,6 +31,7 @@ _start:
     mov ebx,1
     mov eax,4
     int 0x80
+    mov eax,
     ;end os
     
     mov eax,1
